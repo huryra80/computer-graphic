@@ -1,0 +1,316 @@
+#include<windows.h>
+#include<GL/glut.h>
+#define PI          3.141516
+#include<math.h>
+
+//________________________DISPLAY_____________________________________________________
+
+void display() {
+
+// Display____________________________
+glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+
+// Hill______________________________
+
+//1......
+//Left : Front Side
+
+glBegin(GL_TRIANGLES);
+   glColor3f(1.0f, 0.4f, 0.0f);
+   glVertex2f(-0.15f , 0.0f);
+   glVertex2f(-0.55f, 0.60f);
+   glVertex2f(-1.0f , 0.0f);
+   glEnd();
+
+
+
+//Left : Back Side
+
+glBegin(GL_TRIANGLES);
+   glColor3ub(139,69,19);
+   glVertex2f(-0.15f , 0.0f);
+   glVertex2f(-0.55f, 0.60f);
+   glVertex2f(-0.30f , 0.0f);
+   glEnd();
+
+
+
+//2......
+//Right : Front Side
+glBegin(GL_TRIANGLES);
+   glColor3f(1.0f, 0.4f, 0.0f);
+   glVertex2f(0.15f , 0.0f);
+   glVertex2f(0.56f, 0.60f);
+   glVertex2f(1.0f , 0.0f);
+   glEnd();
+
+
+
+//Right : Back Side
+glBegin(GL_TRIANGLES);
+   glColor3ub(139,69,19);
+   glVertex2f(0.15f , 0.0f);
+   glVertex2f(0.56f, 0.60f);
+   glVertex2f(0.30f , 0.0f);
+   glEnd();
+
+
+
+//3......
+//Center : Front Side
+
+glBegin(GL_POLYGON);
+   glColor3f(1.0f, 0.5f, 0.0f);
+   glVertex2f(-0.50f , 0.0f);
+   glVertex2f(-0.12f, 0.55f);
+   glVertex2f(-0.09f, 0.53f);
+   glVertex2f(-0.05f, 0.53f);
+   glVertex2f(-0.01f, 0.55f);
+   glVertex2f(0.35f , 0.0f);
+   glEnd();
+
+
+
+
+//Stick_______________________________
+
+glLineWidth(4.5);
+glBegin(GL_LINES);
+glColor3ub(139,69,19);
+glVertex2d(-0.328f,-0.69f);
+glVertex2d(-0.328f,-0.61f);
+glEnd();
+
+
+
+
+
+
+
+//Barrier boat______________________________
+
+glBegin(GL_QUADS);
+glColor3ub(128,0,0);
+glVertex2d(-0.1f,-0.71f);
+glVertex2d(-0.3f,-0.71f);
+glVertex2d(-0.24f,-0.76f);
+glVertex2d(-0.16f,-0.76f);
+glEnd();
+
+//Rope
+//1
+glLineWidth(3.1);
+glBegin(GL_LINES);
+glColor3ub(0,0,0);
+glVertex2d(-0.33f,-0.65f);
+glVertex2d(-0.28f,-0.71f);
+glEnd();
+
+//2
+glLineWidth(3.1);
+glBegin(GL_LINES);
+glColor3ub(0,0,0);
+glVertex2d(-0.28f,-0.71f);
+glVertex2d(-0.287f,-0.72f);
+glEnd();
+
+
+//load
+//front
+
+glBegin(GL_QUADS);
+glColor3ub(184,134,12);
+glVertex2d(-0.23f,-0.68f);
+glVertex2d(-0.16f,-0.68f);
+glVertex2d(-0.15f,-0.71f);
+glVertex2d(-0.23f,-0.71f);
+glEnd();
+
+//back
+
+glBegin(GL_TRIANGLES);
+glColor3f(0.8,0.7f,0.0f);
+glVertex2d(-0.23f,-0.68f);
+glVertex2d(-0.24f,-0.71f);
+glVertex2d(-0.22f,-0.71f);
+glEnd();
+
+
+
+//Boat___________________________________
+
+
+
+glBegin(GL_QUADS);
+glColor3f(0.5,0.0f,0.0f);
+glVertex2d(0.3f,-0.87f);
+glVertex2d(0.5f,-0.87f);
+glVertex2d(0.44f,-0.92f);
+glVertex2d(0.36f,-0.92f);
+glEnd();
+
+
+//load
+
+glBegin(GL_QUADS);
+glColor3f(0.8,0.7f,0.0f);
+glVertex2d(0.46f,-0.85f);
+glVertex2d(0.38f,-0.85f);
+glVertex2d(0.38f,-0.87f);
+glVertex2d(0.46f,-0.87f);
+glEnd();
+
+
+//stick
+//1
+
+glLineWidth(1.5);
+glBegin(GL_LINES);
+glColor3f(1.0,0.0f,0.0f);
+glVertex2d(0.44f,-0.87f);
+glVertex2d(0.44f,-0.77f);
+glEnd();
+
+
+//2
+
+glBegin(GL_LINES);
+glColor3f(1.0,0.0f,0.0f);
+glVertex2d(0.43f,-0.87f);
+glVertex2d(0.43f,-0.77f);
+glEnd();
+
+
+//3
+
+glBegin(GL_LINES);
+glColor3f(1.0,0.0f,0.0f);
+glVertex2d(0.4f,-0.87f);
+glVertex2d(0.4f,-0.81f);
+glEnd();
+
+
+//Flag
+//1
+glBegin(GL_TRIANGLES);
+glColor3f(1.0,0.0f,0.0f);
+glVertex2d(0.44f,-0.77f);
+glVertex2d(0.48f,-0.84f);
+glVertex2d(0.44f,-0.83f);
+glEnd();
+
+//2
+glBegin(GL_TRIANGLES);
+glColor3f(1.0,0.0f,0.0f);
+glVertex2d(0.43f,-0.77f);
+glVertex2d(0.39f,-0.84f);
+glVertex2d(0.43f,-0.83f);
+glEnd();
+
+
+//3
+
+glBegin(GL_TRIANGLES);
+glColor3f(1.0,0.0f,0.0f);
+glVertex2d(0.4f,-0.81f);
+glVertex2d(0.37f,-0.85f);
+glVertex2d(0.4f,-0.84f);
+glEnd();
+glPopMatrix();
+
+
+
+
+
+
+//Bridge_______________________________________
+
+
+glLineWidth(2.5);
+glBegin(GL_POLYGON);
+glColor3ub(139,69,19);
+glVertex2d(0.38f,-0.45f);
+glVertex2d(0.34f,-0.43f);
+glVertex2d(0.12f,-0.43f);
+glVertex2d(0.07f,-0.45f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glColor3ub(205,133,63);
+glVertex2d(0.10,-0.44);
+glVertex2d(0.10,-0.39);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.13,-0.44);
+glVertex2d(0.13,-0.39);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.16,-0.44);
+glVertex2d(0.16,-0.39);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.19,-0.44);
+glVertex2d(0.19,-0.39);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.22,-0.44);
+glVertex2d(0.22,-0.39);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.25,-0.44);
+glVertex2d(0.25,-0.39);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.28,-0.44);
+glVertex2d(0.28,-0.39);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.31,-0.44);
+glVertex2d(0.31,-0.39);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.35,-0.44);
+glVertex2d(0.35,-0.39);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.10,-0.39);
+glVertex2d(0.35,-0.39);
+glEnd();
+
+
+glFlush();
+
+}
+
+
+int main(int argc, char** argv) {
+   glutInit(&argc, argv);
+  glutInitWindowSize(320, 320);
+   glutInitWindowPosition(50, 50);
+   glutCreateWindow("Hilly Village");
+   glutDisplayFunc(display);
+glutMainLoop();
+
+   return 0;
+}

@@ -1,0 +1,1126 @@
+#include<windows.h>
+#include<GL/glut.h>
+#define PI          3.141516
+#include<math.h>
+
+//Snow_________________________________________________________________________________________________________
+
+GLfloat Position_Snow=3.0f;
+GLfloat speed_Snow=0.0105f;
+void update_Snow(int value){
+
+if(Position_Snow< -1.50)
+    Position_Snow = 1.0f;
+    Position_Snow -= speed_Snow;
+	glutPostRedisplay();
+glutTimerFunc(100, update_Snow , 0);
+}
+
+
+void snow(float a, float b, float r){
+
+    int i;
+    int triangleAmount = 100;
+    GLfloat twicePi = 2.0f * PI;
+    GLfloat x=a; GLfloat y=b; GLfloat radius =r;
+       glBegin(GL_TRIANGLE_FAN);
+       glVertex2f(x, y);
+		for(i = 0; i <= triangleAmount;i++) {
+			glVertex2f(
+                x + (radius * cos(i *  twicePi / triangleAmount)),
+			    y + (radius * sin(i * twicePi / triangleAmount))
+			);
+		}
+
+		glEnd();
+
+
+}
+
+void summer()
+{
+
+
+    // Display____________________________
+glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+
+//Sky___________________________
+	glBegin(GL_POLYGON);
+
+	glColor3ub(202, 237, 236);
+
+	glVertex2f(-1.0f, 1.0f);
+	glVertex2f(-1.0f, -1.0f);
+	glVertex2f(1.0f, -1.0f);
+	glVertex2f(1.0f, 1.0f);
+	  glEnd();
+
+
+
+//1......
+//Left : Front Side
+
+glBegin(GL_TRIANGLES);
+   glColor3f(1.0f, 0.4f, 0.0f);
+   glVertex2f(-0.15f , 0.0f);
+   glVertex2f(-0.55f, 0.60f);
+   glVertex2f(-1.0f , 0.0f);
+   glEnd();
+
+
+
+//Left : Back Side
+
+glBegin(GL_TRIANGLES);
+   glColor3ub(139,69,19);
+   glVertex2f(-0.15f , 0.0f);
+   glVertex2f(-0.55f, 0.60f);
+   glVertex2f(-0.30f , 0.0f);
+   glEnd();
+
+
+
+//2......
+//Right : Front Side
+glBegin(GL_TRIANGLES);
+   glColor3f(1.0f, 0.4f, 0.0f);
+   glVertex2f(0.15f , 0.0f);
+   glVertex2f(0.56f, 0.60f);
+   glVertex2f(1.0f , 0.0f);
+   glEnd();
+
+
+
+//Right : Back Side
+glBegin(GL_TRIANGLES);
+   glColor3ub(139,69,19);
+   glVertex2f(0.15f , 0.0f);
+   glVertex2f(0.56f, 0.60f);
+   glVertex2f(0.30f , 0.0f);
+   glEnd();
+
+
+
+//3......
+//Center : Front Side
+
+glBegin(GL_POLYGON);
+   glColor3f(1.0f, 0.5f, 0.0f);
+   glVertex2f(-0.50f , 0.0f);
+   glVertex2f(-0.12f, 0.55f);
+   glVertex2f(-0.09f, 0.53f);
+   glVertex2f(-0.05f, 0.53f);
+   glVertex2f(-0.01f, 0.55f);
+   glVertex2f(0.35f , 0.0f);
+   glEnd();
+//Fountain______________________
+
+glBegin(GL_POLYGON);
+   glColor3ub(30,144,255);
+   glVertex2f(-0.04f, 0.535f);
+   glVertex2f(-0.09f, 0.53f);
+   glVertex2f(-0.13f, 0.0f);
+   glVertex2f(0.06f , 0.0f);
+   glEnd();
+
+
+
+//Fountain Stream____________________________________________________________//Code no 614 - 700 ........animation added Y vertically___________________________________
+//1
+
+
+
+glBegin(GL_POLYGON);
+   glColor3ub(0,191,250);
+   glVertex2f(-0.06f, 0.5f);
+   glVertex2f(-0.056f, 0.53f);
+   glVertex2f(-0.06f, 0.46f);
+   glVertex2f(-0.05f , 0.3f);
+   glEnd();
+
+
+
+//2
+
+glBegin(GL_POLYGON);
+   glColor3ub(0,191,250);
+   glVertex2f(-0.088f, 0.5f);
+   glVertex2f(-0.086f, 0.53f);
+   glVertex2f(-0.088f, 0.46f);
+   glVertex2f(-0.08f , 0.3f);
+   glEnd();
+
+
+
+//3
+
+glBegin(GL_POLYGON);
+   glColor3ub(0,191,250);
+   glVertex2f(-0.027f, 0.4f);
+   glVertex2f(-0.02f, 0.33f);
+   glVertex2f(-0.023f, 0.36f);
+   glVertex2f(-0.02f , 0.2f);
+   glEnd();
+
+
+
+//4
+
+glBegin(GL_POLYGON);
+   glColor3ub(0,191,250);
+   glVertex2f(-0.074f, 0.3f);
+   glVertex2f(-0.07f, 0.33f);
+   glVertex2f(-0.072f, 0.26f);
+   glVertex2f(-0.07f , 0.2f);
+   glEnd();
+
+
+
+//5
+
+glBegin(GL_POLYGON);
+   glColor3ub(0,191,250);
+   glVertex2f(-0.014f, 0.15f);
+   glVertex2f(-0.01f, 0.1f);
+   glVertex2f(-0.015f, 0.12f);
+   glVertex2f(-0.012f , 0.01f);
+   glEnd();
+
+
+
+//6
+
+glBegin(GL_POLYGON);
+   glColor3ub(0,191,250);
+   glVertex2f(-0.095f, 0.15f);
+   glVertex2f(-0.094f, 0.1f);
+   glVertex2f(-0.092f, 0.12f);
+   glVertex2f(-0.09f , 0.01f);
+   glEnd();
+
+
+
+//7
+
+glBegin(GL_POLYGON);
+   glColor3ub(0,191,250);
+   glVertex2f(-0.064f, 0.15f);
+   glVertex2f(-0.062f, 0.1f);
+   glVertex2f(-0.06f, 0.12f);
+   glVertex2f(-0.057f , 0.01f);
+   glEnd();
+
+
+
+
+// Fountain Bubble______________________________________________________
+// Starting side : Right
+//Serial : 00
+//1
+
+    GLfloat p001=0.04f; GLfloat q001= -0.01f; GLfloat r001 = 0.031f;
+    int tringle001=40;
+
+    GLfloat tp001 =1.0f * PI  ;
+
+glBegin (GL_TRIANGLE_FAN);
+    glColor3ub(176,224,230);
+
+    glVertex2f (p001,q001);
+    for(int i= 0;i<=tringle001; i++)
+    {
+        glVertex2f (
+                    p001+(r001*cos(i*tp001/tringle001)),
+                    q001+(r001*sin(i*tp001/tringle001))
+                    );
+    }
+
+ glEnd ();
+
+
+//2
+
+     GLfloat p002=0.0f; GLfloat q002= -0.01f; GLfloat r002 = 0.023f;
+    int tringle002=40;
+
+    GLfloat tp002 =1.0f * PI  ;
+
+glBegin (GL_TRIANGLE_FAN);
+    glColor3ub(176,224,230);
+
+    glVertex2f (p002,q002);
+    for(int i= 0;i<=tringle002; i++)
+    {
+        glVertex2f (
+                    p002+(r002*cos(i*tp002/tringle002)),
+                    q002+(r002*sin(i*tp002/tringle002))
+                    );
+    }
+
+ glEnd ();
+
+
+//3
+
+    GLfloat p003=-0.02f; GLfloat q003= -0.01f; GLfloat r003 = 0.028f;
+    int tringle003=40;
+
+    GLfloat tp003 =1.0f * PI  ;
+
+glBegin (GL_TRIANGLE_FAN);
+    glColor3ub(176,224,230);
+
+    glVertex2f (p003,q003);
+    for(int i= 0;i<=tringle003; i++)
+    {
+        glVertex2f (
+                    p003+(r003*cos(i*tp003/tringle003)),
+                    q003+(r003*sin(i*tp003/tringle003))
+                    );
+    }
+
+ glEnd ();
+
+
+//4
+
+    GLfloat p004=-0.07f; GLfloat q004= -0.01f; GLfloat r004 = 0.036f;
+    int tringle004=40;
+
+    GLfloat tp004 =1.0f * PI  ;
+
+glBegin (GL_TRIANGLE_FAN);
+    glColor3ub(176,224,230);
+
+    glVertex2f (p004,q004);
+    for(int i= 0;i<=tringle004; i++)
+    {
+        glVertex2f (
+                    p004+(r004*cos(i*tp004/tringle004)),
+                    q004+(r004*sin(i*tp004/tringle004))
+                    );
+    }
+
+ glEnd ();
+
+
+//5
+
+    GLfloat p005=-0.115f; GLfloat q005= -0.01f; GLfloat r005 = 0.022f;
+    int tringle005=40;
+
+    GLfloat tp005 =1.0f * PI  ;
+
+glBegin (GL_TRIANGLE_FAN);
+    glColor3ub(176,224,230);
+
+    glVertex2f (p005,q005);
+    for(int i= 0;i<=tringle005; i++)
+    {
+        glVertex2f (
+                    p005+(r005*cos(i*tp005/tringle005)),
+                    q005+(r005*sin(i*tp005/tringle005))
+                    );
+    }
+
+ glEnd ();
+
+
+
+
+
+
+
+//Path________________________
+//including with hill
+
+ glBegin(GL_QUADS);
+ glColor3ub(45,107,47);
+ glVertex2f(1.0f,0.0f);
+ glVertex2f(-1.0f,0.0f);
+ glVertex2f(-1.0f,-0.50f);
+ glVertex2f(1.0f,-.50f);
+ glEnd();
+
+
+//River________________________
+//include with fountain
+//River Line
+//1
+
+ glLineWidth(8.0);
+ glBegin(GL_LINES);
+ glColor3ub(105,105,105);
+ glVertex2f(-0.14f,0.0f);
+ glVertex2f(-0.04f,-0.50f);
+ glEnd();
+
+
+
+ //2
+
+ glLineWidth(8.0);
+ glBegin(GL_LINES);
+ glColor3ub(105,105,105);
+ glVertex2f(0.07f,0.0f);
+ glVertex2f(0.055f,-0.30f);
+ glEnd();
+
+
+
+ //River Water
+
+glBegin(GL_POLYGON);
+   glColor3ub(30,144,255);
+   glVertex2f(0.07f , 0.0f);
+   glVertex2f(-0.14f, 0.0f);
+   glVertex2f(-0.05f,-0.50f);
+   glVertex2f(0.05f,-0.50f);
+   glEnd();
+
+
+
+//River Stream_______________________________________________code 872 to 892_______________________________________________________________________
+
+glLineWidth(1.5);
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(-0.09f ,-0.05f);
+glVertex2d(-0.09f ,-0.1f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.03f ,-0.02f);
+glVertex2d(0.03f ,-0.1f);
+glEnd();
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(-0.03f ,-0.02f);
+glVertex2d(-0.035f ,-0.1f);
+glEnd();
+
+
+
+
+//Back Green hill_____________________________________________
+//Serial : normal digit
+//1
+//Left
+
+
+    GLfloat p1=-0.70f; GLfloat q1= -0.1f; GLfloat r1 = 0.4f;
+    int tringle1=40;
+
+    GLfloat tp1 =1.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(0.8f,0.8f,0.0f);
+    glVertex2f (p1,q1);
+    for(int i= 0;i<=tringle1; i++)
+    {
+        glVertex2f (
+                    p1+(r1*cos(i*tp1/tringle1)),
+                    q1+(r1*sin(i*tp1/tringle1))
+                    );
+
+
+    }
+
+ glEnd ();
+
+
+
+
+
+
+//2
+//Right
+
+
+    GLfloat p2=0.70f; GLfloat q2= -0.1f; GLfloat r2 = 0.4f;
+    int tringle2=40;
+
+    GLfloat tp2 =1.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(0.8f,0.8f,0.0f);
+    glVertex2f (p2,q2);
+    for(int i= 0;i<=tringle2; i++)
+    {
+        glVertex2f (
+                    p2+(r2*cos(i*tp2/tringle2)),
+                    q2+(r2*sin(i*tp2/tringle2))
+                    );
+
+
+    }
+
+ glEnd ();
+
+
+
+
+
+//Center Green hill1______________________________________________
+//Serial : normal digit
+//1
+//Left
+
+ GLfloat p4=-0.95f; GLfloat q4= -0.22f; GLfloat r4 = 0.35f;
+    int tringle4=40;
+
+    GLfloat tp4 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(0.3f,0.6f,0.0f);
+    glVertex2f (p4,q4);
+    for(int i= 0;i<=tringle4; i++)
+    {
+        glVertex2f (
+                    p4+(r4*cos(i*tp4/tringle4)),
+                    q4+(r4*sin(i*tp4/tringle4))
+                    );
+
+
+    }
+
+ glEnd ();
+
+
+
+//2
+
+ GLfloat p5=-0.46f; GLfloat q5= -0.45f; GLfloat r5 = 0.48f;
+    int tringle5=40;
+
+    GLfloat tp5 =1.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(0.3f,0.6f,0.0f);
+    glVertex2f (p5,q5);
+    for(int i= 0;i<=tringle5; i++)
+    {
+        glVertex2f (
+                    p5+(r5*cos(i*tp5/tringle5)),
+                    q5+(r5*sin(i*tp5/tringle5))
+                    );
+
+
+    }
+
+ glEnd ();
+
+
+
+
+//3
+
+ GLfloat p6=0.15f; GLfloat q6= -0.53f; GLfloat r6 = 0.48f;
+    int tringle6=40;
+
+    GLfloat tp6 =1.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(0.3f,0.6f,0.0f);
+    glVertex2f (p6,q6);
+    for(int i= 0;i<=tringle6; i++)
+    {
+        glVertex2f (
+                    p6+(r6*cos(i*tp6/tringle6)),
+                    q6+(r6*sin(i*tp6/tringle6))
+                    );
+
+
+    }
+
+ glEnd ();
+
+
+
+
+
+//4
+//Right
+
+ GLfloat p7=0.7f; GLfloat q7= -0.35f; GLfloat r7 = 0.50f;
+    int tringle7=40;
+
+    GLfloat tp7 =1.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(0.3f,0.6f,0.0f);
+    glVertex2f (p7,q7);
+    for(int i= 0;i<=tringle7; i++)
+    {
+        glVertex2f (
+                    p7+(r7*cos(i*tp7/tringle7)),
+                    q7+(r7*sin(i*tp7/tringle7))
+                    );
+
+
+    }
+
+ glEnd ();
+
+
+
+
+
+
+//Front path_________________________
+//1
+
+ glBegin(GL_QUADS);
+ glColor3f(0.3f,0.7f,0.0f);
+ glVertex2f(1.0f,-0.25f);
+ glVertex2f(-1.0f,-0.25f);
+ glVertex2f(-1.0f,-1.0f);
+ glVertex2f(1.0f,-1.0f);
+ glEnd();
+
+
+//2
+
+ glBegin(GL_QUADS);
+ glColor3f(0.7f,0.8f,0.0f);
+ glVertex2f(1.0f,-0.40f);
+ glVertex2f(-1.0f,-0.40f);
+ glVertex2f(-1.0f,-1.0f);
+ glVertex2f(1.0f,-1.0f);
+ glEnd();
+
+
+ //3
+
+ glBegin(GL_QUADS);
+ glColor3f(0.8f,0.5f,0.0f);
+ glVertex2f(1.0f,-0.70f);
+ glVertex2f(-1.0f,-0.70f);
+ glVertex2f(-1.0f,-1.0f);
+ glVertex2f(1.0f,-1.0f);
+ glEnd();
+
+
+//Front River_________________________
+//River Line
+//1
+
+ glLineWidth(14.5);
+ glBegin(GL_LINES);
+ glColor3ub(105,105,105);
+ glVertex2f(0.125f,-0.25f);
+ glVertex2f(0.10f,-0.7f);
+ glEnd();
+
+
+
+ //2
+
+ glLineWidth(14.5);
+ glBegin(GL_LINES);
+ glColor3ub(105,105,105);
+ glVertex2f(0.10f,-0.7f);
+ glVertex2f(0.195f,-1.0f);
+ glEnd();
+
+
+
+//3
+
+ glLineWidth(14.5);
+ glBegin(GL_LINES);
+ glColor3ub(105,105,105);
+ glVertex2f(0.31f,-0.25f);
+ glVertex2f(0.405f,-0.70f);
+ glEnd();
+
+
+
+//4
+
+ glLineWidth(15);
+ glBegin(GL_LINES);
+ glColor3ub(105,105,105);
+ glVertex2f(0.41f,-0.70f);
+ glVertex2f(1.0f,-0.7f);
+ glEnd();
+
+
+ //5
+
+ glLineWidth(15);
+ glBegin(GL_LINES);
+ glColor3ub(105,105,105);
+ glVertex2f(0.41f,-0.70f);
+ glVertex2f(-1.0f,-0.7f);
+ glEnd();
+
+
+
+
+
+
+//Front Fountain____________________
+//1 : Attached
+
+ glBegin(GL_QUADS);
+ glColor3ub(30,144,255);
+ glVertex2f(0.26f,-0.06f);
+ glVertex2f(0.10f,-0.05f);
+ glVertex2f(0.12f,-0.25f);
+ glVertex2f(0.32f,-0.25f);
+ glEnd();
+
+
+// Fountain Stream___________________________________________________________code : 2092 to 2126___________________________________________________________________
+
+glLineWidth(1.5);
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.15f ,-0.08f);
+glVertex2d(0.17f ,-0.2f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.19f ,-0.1f);
+glVertex2d(0.21f ,-0.2f);
+glEnd();
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.13f ,-0.13f);
+glVertex2d(0.14f ,-0.23f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.18f ,-0.17f);
+glVertex2d(0.189f ,-0.23f);
+glEnd();
+
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.25f ,-0.13f);
+glVertex2d(0.27f ,-0.19f);
+glEnd();
+
+
+
+//River Water____________________
+//1 : Attached
+
+ glBegin(GL_POLYGON);
+ glColor3ub(30,144,255);
+ glVertex2f(0.32f,-0.25f);
+ glVertex2f(0.12f,-0.25f);
+ glVertex2f(0.10f,-0.7f);
+ glVertex2f(0.20f,-1.0f);
+ glVertex2f(0.40f,-0.70f);
+
+ glEnd();
+
+
+ // 1.River Stream____________________________________________code : 2144 to 2192_________________________________________________________
+
+glLineWidth(1.5);
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.15f ,-0.6f);
+glVertex2d(0.17f ,-0.67f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.19f ,-0.4f);
+glVertex2d(0.21f ,-0.45f);
+glEnd();
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.13f ,-0.43f);
+glVertex2d(0.14f ,-0.48f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.3f ,-0.53f);
+glVertex2d(0.32f ,-0.57f);
+glEnd();
+
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.25f ,-0.63f);
+glVertex2d(0.27f ,-0.69f);
+glEnd();
+
+
+
+
+//2
+
+ glBegin(GL_POLYGON);
+ glColor3ub(30,144,255);
+ glVertex2f(1.0f,-0.7f);
+ glVertex2f(-1.0f,-0.7f);
+ glVertex2f(-1.0f,-1.0f);
+ glVertex2f(1.0f,-1.0f);
+ glEnd();
+
+
+  // 2.River Stream____________________________________________code : 2195 to 2238__________________________Animation added x horizontally________________________________________
+
+glLineWidth(1.5);
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.1f ,-0.8f);
+glVertex2d(0.2f ,-0.8f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(-0.1f ,-0.9f);
+glVertex2d(-0.21f ,-0.9f);
+glEnd();
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.3f ,-0.93f);
+glVertex2d(0.4f ,-0.937f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(-0.8f ,-0.83f);
+glVertex2d(-0.9f ,-0.836f);
+glEnd();
+
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(0.5f ,-0.85f);
+glVertex2d(0.6f ,-0.86f);
+glEnd();
+
+
+
+glBegin(GL_LINES);
+glColor3ub(0,191,250);
+glVertex2d(-0.6f ,-0.91f);
+glVertex2d(-0.7f ,-0.92f);
+glEnd();
+
+
+
+
+// Fountain Bubble______________________________________________________
+// Starting side : Right
+//Serial : 01
+//1
+
+    GLfloat p011=0.295f; GLfloat q011= -0.26f; GLfloat r011 = 0.028f;
+    int tringle011=40;
+
+    GLfloat tp011 =1.0f * PI  ;
+
+glBegin (GL_TRIANGLE_FAN);
+    glColor3ub(176,224,230);
+
+    glVertex2f (p011,q011);
+    for(int i= 0;i<=tringle001; i++)
+    {
+        glVertex2f (
+                    p011+(r011*cos(i*tp011/tringle011)),
+                    q011+(r011*sin(i*tp011/tringle011))
+                    );
+    }
+
+ glEnd ();
+
+
+//2
+
+     GLfloat p012=0.25f; GLfloat q012= -0.26f; GLfloat r012 = 0.025f;
+    int tringle012=40;
+
+    GLfloat tp012 =1.0f * PI  ;
+
+glBegin (GL_TRIANGLE_FAN);
+    glColor3ub(176,224,230);
+
+    glVertex2f (p012,q012);
+    for(int i= 0;i<=tringle012; i++)
+    {
+        glVertex2f (
+                    p012+(r012*cos(i*tp012/tringle012)),
+                    q012+(r012*sin(i*tp012/tringle012))
+                    );
+    }
+
+ glEnd ();
+
+
+//3
+
+    GLfloat p013=0.2f; GLfloat q013= -0.26f; GLfloat r013 = 0.028f;
+    int tringle013=40;
+
+    GLfloat tp013 =1.0f * PI  ;
+
+glBegin (GL_TRIANGLE_FAN);
+    glColor3ub(176,224,230);
+
+    glVertex2f (p013,q013);
+    for(int i= 0;i<=tringle013; i++)
+    {
+        glVertex2f (
+                    p013+(r013*cos(i*tp013/tringle013)),
+                    q013+(r013*sin(i*tp013/tringle013))
+                    );
+    }
+
+ glEnd ();
+
+
+//4
+
+    GLfloat p014=0.155f; GLfloat q014= -0.26f; GLfloat r014 = 0.036f;
+    int tringle014=40;
+
+    GLfloat tp014 =1.0f * PI  ;
+
+glBegin (GL_TRIANGLE_FAN);
+    glColor3ub(176,224,230);
+
+    glVertex2f (p014,q014);
+    for(int i= 0;i<=tringle014; i++)
+    {
+        glVertex2f (
+                    p014+(r014*cos(i*tp014/tringle014)),
+                    q014+(r014*sin(i*tp014/tringle014))
+                    );
+    }
+
+ glEnd ();
+
+
+
+
+//Cycle___________________________________________________________
+
+//Serial : 10
+//1
+
+
+GLfloat p101=0.5f; GLfloat q101= -0.43f; GLfloat r101 = 0.015f;
+    int tringle101=40;
+
+    GLfloat tp101 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3ub ( 0,0,0);
+    glVertex2f (p101,q101);
+    for(int i= 0;i<=tringle101; i++)
+    {
+        glVertex2f (
+                    p101+(r101*cos(i*tp101/tringle101)),
+                    q101+(r101*sin(i*tp101/tringle101))
+                    );
+
+
+    }
+    glEnd ();
+
+
+
+//2
+
+GLfloat p102=0.41f; GLfloat q102= -0.43f; GLfloat r102 = 0.015f;
+    int tringle102=40;
+
+    GLfloat tp102 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3ub ( 0,0,0);
+    glVertex2f (p102,q102);
+    for(int i= 0;i<=tringle102; i++)
+    {
+        glVertex2f (
+                    p102+(r102*cos(i*tp102/tringle102)),
+                    q102+(r102*sin(i*tp102/tringle102))
+                    );
+
+
+    }
+    glEnd ();
+
+
+glLineWidth(3.5);
+glBegin(GL_LINES);
+glColor3ub(178,34,34);
+glVertex2d(0.41f , -0.43f);
+glVertex2d(0.47f , -0.41f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.47f , -0.41f);
+glVertex2d(0.49f , -0.38f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.44f , -0.37f);
+glVertex2d(0.49f , -0.38f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.44f , -0.37f);
+glVertex2d(0.41f , -0.43f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.5f , -0.43f);
+glVertex2d(0.48f , -0.33f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.47f , -0.33f);
+glVertex2d(0.48f , -0.33f);
+glEnd();
+
+
+glBegin(GL_LINES);
+glVertex2d(0.45f , -0.36f);
+glVertex2d(0.43f , -0.37f);
+glEnd();
+
+//Snow_______________________________________________________________
+
+
+//serial 500
+//1
+
+glPushMatrix();
+        glTranslated(0.0f,Position_Snow,0.0f);
+        glColor3ub(255, 255, 255);
+       snow(-1.5,.95,.01);
+        snow(-.95,.75,.01);
+        snow(-.65,0.55,.01);
+        snow(-.35,0.46,.01);
+        snow(-.05,0.648,.01);
+        snow(.25,.83,.01);
+        snow(.55,0.8,.01);
+        snow(.75,0.35,.01);
+        snow(1.,0.26,.01);
+        snow(-.45,0.148,.01);
+
+
+       glTranslated(0.2,-0.5,0);
+       snow(-1.5,.95,.01);
+        snow(-.95,.75,.01);
+        snow(-.65,0.55,.01);
+        snow(-.35,0.46,.01);
+        snow(-.05,0.648,.01);
+        snow(.25,.83,.01);
+        snow(.55,0.8,.01);
+        snow(.75,0.35,.01);
+        snow(1.,0.26,.01);
+        snow(-.45,0.148,.01);
+
+       glTranslated(-0.1,-0.45,0);
+       snow(-1.5,.95,.01);
+        snow(-.95,.75,.01);
+        snow(-.65,0.55,.01);
+        snow(-.35,0.46,.01);
+        snow(-.05,0.648,.01);
+        snow(.25,.83,.01);
+        snow(.55,0.8,.01);
+        snow(.75,0.35,.01);
+        snow(1.,0.26,.01);
+        snow(-.45,0.148,.01);
+
+       glTranslated(0.0,-0.5,0);
+       snow(-1.5,.95,.01);
+        snow(-.95,.75,.01);
+        snow(-.65,0.55,.01);
+        snow(-.35,0.46,.01);
+        snow(-.05,0.648,.01);
+        snow(.25,.83,.01);
+        snow(.55,0.8,.01);
+        snow(.75,0.35,.01);
+        snow(1.,0.26,.01);
+        snow(-.45,0.148,.01);
+
+       glTranslated(0.2,-0.5,0);
+       snow(-1.5,.95,.01);
+        snow(-.95,.75,.01);
+        snow(-.65,0.55,.01);
+        snow(-.35,0.46,.01);
+        snow(-.05,0.648,.01);
+        snow(.25,.83,.01);
+        snow(.55,0.8,.01);
+        snow(.75,0.35,.01);
+        snow(1.,0.26,.01);
+        snow(-.45,0.148,.01);
+
+       glTranslated(-0.1,-0.5,0);
+       snow(-1.5,.95,.01);
+        snow(-.95,.75,.01);
+        snow(-.65,0.55,.01);
+        snow(-.35,0.46,.01);
+        snow(-.05,0.648,.01);
+        snow(.25,.83,.01);
+        snow(.55,0.8,.01);
+        snow(.75,0.35,.01);
+        snow(1.,0.26,.01);
+        snow(-.45,0.148,.01);
+       glLoadIdentity();
+
+
+
+	    glPopMatrix();
+
+
+
+
+glFlush();
+}
+
+int main(int argc, char** argv) {
+   glutInit(&argc, argv);
+   glutInitWindowSize(320, 320);
+   glutInitWindowPosition(50, 50);
+   glutCreateWindow("Hilly Village");
+   //glutTimerFunc(100, update_sun, 0);
+//   glutTimerFunc(100, update_cloud, 0);
+//   glutTimerFunc(100, Rupdate_cloud, 0);
+//   glutTimerFunc(100, update_Boat, 0);
+////   glutTimerFunc(100, update_Bird, 0);
+//   glutTimerFunc(100,updateRain,0);
+   glutTimerFunc(100,update_Snow,0);
+//   glutTimerFunc(100,update_Baloon,0);
+   glutDisplayFunc(summer);
+//    glutKeyboardFunc(handleKeypress);
+   glutMainLoop();
+   return 0;
+}

@@ -1,0 +1,411 @@
+#include<windows.h>
+#include<GL/glut.h>
+#define PI          3.141516
+#include<math.h>
+
+
+bool night = false;
+
+void summer(){
+//Sky___________________________
+	glBegin(GL_POLYGON);
+	if(night==true)
+
+       {
+       glColor3ub(19,24,98);
+
+       }
+
+       else
+	glColor3ub(175,238,238);
+
+	glVertex2f(-1.0f, 1.0f);
+	glVertex2f(-1.0f, -1.0f);
+	glVertex2f(1.0f, -1.0f);
+	glVertex2f(1.0f, 1.0f);
+	  glEnd();
+
+
+//house_________________________________________________
+
+//a
+ glBegin(GL_QUADS);
+	glColor3f(1.78f, 1.74f,0.73f);
+
+	glVertex2f(-0.75f, -0.65f);
+	glVertex2f(-0.55f, -0.65f);
+
+	glVertex2f(-0.55f, -0.5f);
+	glVertex2f(-0.75f, -0.5f);
+	glEnd();
+
+//b
+ glBegin(GL_QUADS);
+	glColor3ub(255,215,0);
+
+	glVertex2f(-0.75f, -0.65f);
+	glVertex2f(-0.78f, -0.68f);
+
+	glVertex2f(-0.52f, -0.68f);
+	glVertex2f(-0.55f, -0.65f);
+	glEnd();
+
+
+//c
+glBegin(GL_TRIANGLES);
+
+    glColor3f(1.0f,0.0f,0.0f);
+
+    glVertex2f(-0.77,-0.5);
+    glVertex2f(-0.53,-0.5);
+    glVertex2f(-0.65,-0.42);
+
+    glEnd();
+
+ //d
+ glBegin(GL_QUADS);
+	glColor3f(1.00f, 0.0f,0.0f);
+
+	glVertex2f(-0.68f, -0.65f);
+	glVertex2f(-0.62f, -0.65f);
+
+	glVertex2f(-0.62f, -0.55f);
+	glVertex2f(-0.68f, -0.55f);
+	glEnd();
+
+
+
+
+    //h0use small
+    //a
+
+
+		glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+
+	glVertex2f(-0.45f, -0.5f);
+	glVertex2f(-0.25f, -0.5f);
+
+	glVertex2f(-0.25f, -0.35f);
+	glVertex2f(-0.45f, -0.35f);
+	glEnd();
+
+
+	//b
+	glBegin(GL_TRIANGLES);
+
+    glColor3f(1.0f,0.0f,0.0f);
+
+    glVertex2f(-0.5,-0.35);
+    glVertex2f(-0.2,-0.35);
+    glVertex2f(-0.35,-0.25);
+
+    glEnd();
+
+//c
+glBegin(GL_QUADS);
+	glColor3ub(255,215,0);
+
+	glVertex2f(-0.45f, -0.5f);
+	glVertex2f(-0.5f, -0.55f);
+
+	glVertex2f(-0.2f, -0.55f);
+	glVertex2f(-0.25f, -0.5f);
+	glEnd();
+
+	//d
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glVertex2f(-0.38f, -0.5f);
+	glVertex2f(-0.32f, -0.5f);
+
+	glVertex2f(-0.32f, -0.42f);
+	glVertex2f(-0.38f, -0.42f);
+	glEnd();
+
+	//road big house
+	glBegin(GL_QUADS);
+	glColor3f(0.92f, 0.53f, 0.17f);
+
+	glVertex2f(-0.8f, -1.0f);
+	glVertex2f(-0.7f, -1.0f);
+
+	glVertex2f(-0.6f, -0.75f);
+	glVertex2f(-0.7f, -0.75f);
+	glEnd();
+
+	//house 3
+	//a
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+
+	glVertex2f(-0.75f, -0.25f);
+	glVertex2f(-0.75f, -0.35f);
+
+	glVertex2f(-0.55f, -0.35f);
+	glVertex2f(-0.55f, -0.25f);
+	glEnd();
+
+//b
+
+glBegin(GL_QUADS);
+	glColor3ub(255,215,0);
+
+	glVertex2f(-0.8f, -0.4f);
+	glVertex2f(-0.5f, -0.4f);
+
+	glVertex2f(-0.55f, -0.35f);
+	glVertex2f(-0.75f, -0.35f);
+	glEnd();
+
+	//c
+	glBegin(GL_TRIANGLES);
+
+    glColor3f(1.0f,0.0f,0.0f);
+
+    glVertex2f(-0.8,-0.25);
+    glVertex2f(-0.5,-0.25);
+    glVertex2f(-0.65,-0.18);
+
+    glEnd();
+
+    //d
+    glBegin(GL_QUADS);
+	glColor3f(1.0f, 0.0f, 0.0f);
+
+	glVertex2f(-0.68f, -0.35f);
+	glVertex2f(-0.62f, -0.35f);
+
+	glVertex2f(-0.62f, -0.26f);
+	glVertex2f(-0.68f, -0.26f);
+	glEnd();
+
+
+
+
+
+
+//SUN FLOWER TREE RIGHT SIDE FRONT= TAWFIQ 20-43518-1
+
+
+GLfloat p305=0.50f; GLfloat q305=-0.10f; GLfloat r305 = 0.01f;
+    int tringle305=40;
+
+    GLfloat tp305 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(1.0f,1.0f,0.0f);
+    glVertex2f (p305,q305);
+    for(int i= 0;i<=tringle305; i++)
+    {
+        glVertex2f (
+                    p305+(r305*cos(i*tp305/tringle305)),
+                    q305+(r305*sin(i*tp305/tringle305)));
+
+
+
+    }
+
+ glEnd ();
+
+ GLfloat p306=0.52f; GLfloat q306=-0.10f; GLfloat r306 = 0.01f;
+    int tringle306=40;
+
+    GLfloat tp306 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(1.0f,1.0f,0.0f);
+    glVertex2f (p306,q306);
+    for(int i= 0;i<=tringle306; i++)
+    {
+        glVertex2f (
+                    p306+(r306*cos(i*tp306/tringle306)),
+                    q306+(r306*sin(i*tp306/tringle306)));
+
+
+
+    }
+
+ glEnd ();
+
+ GLfloat p307=0.50f; GLfloat q307=-0.12f; GLfloat r307 = 0.01f;
+    int tringle307=40;
+
+    GLfloat tp307 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(1.0f,1.0f,0.0f);
+    glVertex2f (p307,q307);
+    for(int i= 0;i<=tringle307; i++)
+    {
+        glVertex2f (
+                    p307+(r307*cos(i*tp307/tringle307)),
+                    q307+(r307*sin(i*tp307/tringle307)));
+
+
+
+    }
+
+ glEnd ();
+
+  GLfloat p308=0.52f; GLfloat q308=-0.12f; GLfloat r308 = 0.01f;
+    int tringle308=40;
+
+    GLfloat tp308 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(1.0f,1.0f,0.0f);
+    glVertex2f (p308,q308);
+    for(int i= 0;i<=tringle308; i++)
+    {
+        glVertex2f (
+                    p308+(r308*cos(i*tp308/tringle308)),
+                    q308+(r308*sin(i*tp308/tringle308)));
+
+
+
+    }
+
+ glEnd ();
+
+ glLineWidth(0.01);
+ glBegin(GL_LINES);
+ glColor3f(1.02f,0.51f,0.0f);
+ glVertex2f(0.51f,-0.12f);
+ glVertex2f(0.49f,-0.25f);
+ glEnd();
+
+ //SUN FLOWER TREE 2 RIGHT SIDE FRONT= TAWFIQ 20-43518-1
+
+GLfloat p309=0.60f; GLfloat q309=-0.10f; GLfloat r309 = 0.01f;
+    int tringle309=40;
+
+    GLfloat tp309 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(1.0f,1.0f,0.0f);
+    glVertex2f (p309,q309);
+    for(int i= 0;i<=tringle309; i++)
+    {
+        glVertex2f (
+                    p309+(r309*cos(i*tp309/tringle309)),
+                    q309+(r309*sin(i*tp309/tringle309)));
+
+
+
+    }
+
+ glEnd ();
+
+ GLfloat p310=0.62f; GLfloat q310=-0.10f; GLfloat r310 = 0.01f;
+    int tringle310=40;
+
+    GLfloat tp310 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(1.0f,1.0f,0.0f);
+    glVertex2f (p310,q310);
+    for(int i= 0;i<=tringle310; i++)
+    {
+        glVertex2f (
+                    p310+(r310*cos(i*tp310/tringle310)),
+                    q310+(r310*sin(i*tp310/tringle310)));
+
+
+
+    }
+
+ glEnd ();
+
+ GLfloat p311=0.60f; GLfloat q311=-0.12f; GLfloat r311 = 0.01f;
+    int tringle311=40;
+
+    GLfloat tp311 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(1.0f,1.0f,0.0f);
+    glVertex2f (p311,q311);
+    for(int i= 0;i<=tringle311; i++)
+    {
+        glVertex2f (
+                    p311+(r311*cos(i*tp311/tringle311)),
+                    q311+(r311*sin(i*tp311/tringle311)));
+
+
+
+    }
+
+ glEnd ();
+
+  GLfloat p312=0.62f; GLfloat q312=-0.12f; GLfloat r312 = 0.01f;
+    int tringle312=40;
+
+    GLfloat tp312 =2.0f * PI  ;
+
+    glBegin (GL_TRIANGLE_FAN);
+    glColor3f(1.0f,1.0f,0.0f);
+    glVertex2f (p312,q312);
+    for(int i= 0;i<=tringle312; i++)
+    {
+        glVertex2f (
+                    p312+(r312*cos(i*tp312/tringle312)),
+                    q312+(r312*sin(i*tp312/tringle312)));
+
+
+
+    }
+
+ glEnd ();
+
+ glLineWidth(0.01);
+ glBegin(GL_LINES);
+ glColor3f(1.02f,0.51f,0.0f);
+ glVertex2f(0.61f,-0.12f);
+ glVertex2f(0.59f,-0.25f);
+ glEnd();
+
+
+glFlush();
+}
+
+
+
+
+void handleKeypress(unsigned char key, int x, int y) {
+switch (key) {
+case 'n':
+        night=true;
+    break;
+case 'd':
+        night=false;
+    break;
+
+
+glutPostRedisplay();
+}
+}
+
+
+
+
+int main(int argc, char** argv) {
+   glutInit(&argc, argv);
+   glutInitWindowSize(320, 320);
+   glutInitWindowPosition(50, 50);
+   glutCreateWindow("Hilly Village");
+   //glutTimerFunc(100, update_sun, 0);
+   //lutTimerFunc(100, update_cloud, 0);
+//   glutTimerFunc(100, Rupdate_cloud, 0);
+//   glutTimerFunc(100, update_Boat, 0);
+//   glutTimerFunc(100, update_Bird, 0);
+//   glutTimerFunc(100,updateRain,0);
+//   glutTimerFunc(100,update_Snow,0);
+//   glutTimerFunc(100,update_Baloon,0);
+   glutDisplayFunc(summer);
+    glutKeyboardFunc(handleKeypress);
+   glutMainLoop();
+   return 0;
+}
+
+
+
