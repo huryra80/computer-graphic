@@ -1,3 +1,1 @@
-# compter-graphic
-# computer
 # computer
